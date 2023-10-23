@@ -147,7 +147,7 @@ NoticiarioAPI.Tests/PostmanCollections/newman/NoticiarioAPI - Noticias Test Coll
 NoticiarioAPI.Tests/PostmanCollections/newman/NoticiarioAPI - Usuarios Test Collection-2023-10-13-16-58-14-552-0.html
 #
 ### Scripts de Test por Requests:
-+ POST https://localhost:7037/Usuario
++ __POST https://localhost:7037/Usuario__
 ```javascript
 pm.test("Retorno OK Cadastro Usuario", function() {
     pm.response.to.be.ok;
@@ -163,7 +163,7 @@ pm.test("Verificar se o Id do Usuario foi gerado", function() {
     pm.collectionVariables.set("id", result.id)
 });
 ```
-+ POST https://localhost:7037/Login/GeraToken?email={{email}}&password={{password}}
++ __POST https://localhost:7037/Login/GeraToken?email={{email}}&password={{password}}__
 ```javascript
 pm.test("Retorno OK Usuario Logado", function() {
     pm.response.to.be.ok;
@@ -180,7 +180,7 @@ pm.test("Checar Token", function() {
 
 pm.environment.set('token', result.token);
 ```
-+ POST https://localhost:7037/Noticia
++ __POST https://localhost:7037/Noticia__
 ```javascript
 pm.test("Retorno OK Cadastra Noticia", function() {
     pm.response.to.be.ok;
@@ -196,7 +196,7 @@ pm.test("Verificar se o Id da Noticia foi gerado", function() {
     pm.collectionVariables.set("id", result.id)
 });
 ```
-+ GET https://localhost:7037/Usuario
++ __GET https://localhost:7037/Usuario__
 ```javascript
 pm.test("Retorno OK Consulta Usuarios", function() {
     pm.response.to.be.ok;
@@ -204,7 +204,7 @@ pm.test("Retorno OK Consulta Usuarios", function() {
     pm.response.to.be.withBody;
 });
 ```
-+ GET https://localhost:7037/Noticia
++ __GET https://localhost:7037/Noticia__
 ```javascript
 pm.test("Retorno OK Consulta Noticias", function() {
     pm.response.to.be.ok;
@@ -212,7 +212,7 @@ pm.test("Retorno OK Consulta Noticias", function() {
     pm.response.to.be.withBody;
 });
 ```
-+ GET https://localhost:7037/Usuario/{{id}}
++ __GET https://localhost:7037/Usuario/{{id}}__
 ```javascript
 pm.test("Retorno OK Consultar Usuario por ID", function() {
     pm.response.to.be.ok;
@@ -242,7 +242,7 @@ pm.test("Checar Role", function() {
     pm.expect(result.role).to.to.eql(pm.collectionVariables.get("role"));
 });
 ```
-+ GET https://localhost:7037/Noticia/{{id}}
++ __GET https://localhost:7037/Noticia/{{id}}__
 ```javascript
 pm.test("Retorno OK Consultar Noticia por ID", function() {
     pm.response.to.be.ok;
@@ -279,14 +279,14 @@ pm.test("Checar Data Publicacao", function() {
     pm.expect(result.dataPublicacao).not.null;
 });
 ```
-+ PUT https://localhost:7037/Usuario/{{id}}
++ __PUT https://localhost:7037/Usuario/{{id}}__
 ```javascript
 pm.test("Retorno OK Atualizar Usuario", function() {
     pm.response.to.have.status(204);
     pm.response.to.be.success;
 });
 ```
-+ PUT https://localhost:7037/Noticia/{{id}}
++ __PUT https://localhost:7037/Noticia/{{id}}__
 ```javascript
 pm.test("Retorno OK Atualizar Noticia", function() {
     pm.response.to.be.ok;
@@ -302,14 +302,14 @@ pm.test("Checar Id Noticia", function() {
     pm.expect(result.id).to.eql(parseInt(pm.collectionVariables.get("id")));
 });
 ```
-+ DELETE https://localhost:7037/Usuario/{{id}}
++ __DELETE https://localhost:7037/Usuario/{{id}}__
 ```javascript
 pm.test("Retorno OK Deletar Usuario", function() {
     pm.response.to.have.status(204);
     pm.response.to.be.success;
 });
 ```
-+ DELETE https://localhost:7037/Noticia/{{id}}
++ __DELETE https://localhost:7037/Noticia/{{id}}__
 ```javascript
 pm.test("Retorno OK Deletar Noticia", function() {
     pm.response.to.have.status(204);
