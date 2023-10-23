@@ -143,8 +143,8 @@ Para o teste de integração foi utilizado o Postman e também o Newman, com o P
 ### Diretório para as Coleções do Postman
 + NoticiarioAPI.Tests/PostmanCollections
 ### Diretório para os Relatórios Gerados pelo Newman
-NoticiarioAPI.Tests/PostmanCollections/newman/NoticiarioAPI - Noticias Test Collection-2023-10-13-16-56-55-163-0.html
-NoticiarioAPI.Tests/PostmanCollections/newman/NoticiarioAPI - Usuarios Test Collection-2023-10-13-16-58-14-552-0.html
++ NoticiarioAPI.Tests/PostmanCollections/newman/NoticiarioAPI - Noticias Test Collection-2023-10-13-16-56-55-163-0.html
++ NoticiarioAPI.Tests/PostmanCollections/newman/NoticiarioAPI - Usuarios Test Collection-2023-10-13-16-58-14-552-0.html
 #
 ### Scripts de Test por Requests:
 + __POST https://localhost:7037/Usuario__
