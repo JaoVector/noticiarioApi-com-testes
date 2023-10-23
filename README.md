@@ -4,7 +4,7 @@
 Nesta API é possível efetuar um CRUD tanto para Usuários quanto para as Noticias, e foram adicionados testes para validar estes cenários.
 Utilizando testes unitários e também o teste de integração.
 #
-## Testes Unitários
+# Testes Unitários
 ### Objetivo.
 Validar cada função isoladamente dentro da aplicação.
 OBS: Foram utilizadas as bibliotecas Moq e XUnit para efetuar os testes de Unidade, e também foram criadas Listas de dados Fake para evitar o uso do banco de dados.
@@ -133,3 +133,9 @@ _uof.Setup(repo => repo.NoticiaRepository.Deleta(It.IsAny<Noticia>()))
 _uof.Setup(repo => repo.UsuarioRepository.AutenticaUser(It.IsAny<string>(), It.IsAny<string>()))
                 .Callback(() => _usuarios.FirstOrDefault());
 ```
+#
+# Testes de Integração
+### Objetivo.
+Testar a integração entre as Unidades.
+### Descrição.
+Para o teste de integração foi utilizado o Postman e também o Newman, com o Postman é possível gerar coleções com as Requests necessárias, e também pre-request scripts para utilizar o input de dados de maneira randomica, junto aos tests feitos em JavaScript para validar o retorno de cada requisição. O Newman facilita no momento de rodar várias requests ao mesmo tempo e também na geração de relatórios para visualizar os resultados.
