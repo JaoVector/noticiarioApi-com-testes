@@ -144,3 +144,4 @@ Para o teste de integração foi utilizado o Postman e também o Newman, com o P
 + NoticiarioAPI.Tests/PostmanCollections
 ### Diretório para os Relatórios Gerados pelo Newman
 [Relatorio Noticias Test](NoticiarioAPI.Tests/PostmanCollections/newman/NoticiarioAPI - Noticias Test Collection-2023-10-13-16-56-55-163-0.html)
+#
