@@ -143,5 +143,176 @@ Para o teste de integração foi utilizado o Postman e também o Newman, com o P
 ### Diretório para as Coleções do Postman
 + NoticiarioAPI.Tests/PostmanCollections
 ### Diretório para os Relatórios Gerados pelo Newman
-[Relatorio Noticias Test](NoticiarioAPI.Tests/PostmanCollections/newman/NoticiarioAPI - Noticias Test Collection-2023-10-13-16-56-55-163-0.html)
+NoticiarioAPI.Tests/PostmanCollections/newman/NoticiarioAPI - Noticias Test Collection-2023-10-13-16-56-55-163-0.html
+NoticiarioAPI.Tests/PostmanCollections/newman/NoticiarioAPI - Usuarios Test Collection-2023-10-13-16-58-14-552-0.html
 #
+### Scripts de Test por Requests:
++ POST https://localhost:7037/Usuario
+```javascript
+pm.test("Retorno OK Cadastro Usuario", function() {
+    pm.response.to.be.ok;
+    pm.response.to.json;
+    pm.response.to.be.withBody;
+});
+
+var result = pm.response.json();
+
+pm.test("Verificar se o Id do Usuario foi gerado", function() {
+    pm.expect(result.id).not.undefined;
+    pm.expect(result.id).not.null;
+    pm.collectionVariables.set("id", result.id)
+});
+```
++ POST https://localhost:7037/Login/GeraToken?email={{email}}&password={{password}}
+```javascript
+pm.test("Retorno OK Usuario Logado", function() {
+    pm.response.to.be.ok;
+    pm.response.to.json;
+    pm.response.to.be.withBody;
+});
+
+var result = pm.response.json();
+
+pm.test("Checar Token", function() {
+    pm.expect(result.token).not.undefined;
+    pm.expect(result.token).not.null;
+});
+
+pm.environment.set('token', result.token);
+```
++ POST https://localhost:7037/Noticia
+```javascript
+pm.test("Retorno OK Cadastra Noticia", function() {
+    pm.response.to.be.ok;
+    pm.response.to.json;
+    pm.response.to.be.withBody;
+});
+
+var result = pm.response.json();
+
+pm.test("Verificar se o Id da Noticia foi gerado", function() {
+    pm.expect(result.id).not.undefined;
+    pm.expect(result.id).not.null;
+    pm.collectionVariables.set("id", result.id)
+});
+```
++ GET https://localhost:7037/Usuario
+```javascript
+pm.test("Retorno OK Consulta Usuarios", function() {
+    pm.response.to.be.ok;
+    pm.response.to.json;
+    pm.response.to.be.withBody;
+});
+```
++ GET https://localhost:7037/Noticia
+```javascript
+pm.test("Retorno OK Consulta Noticias", function() {
+    pm.response.to.be.ok;
+    pm.response.to.json;
+    pm.response.to.be.withBody;
+});
+```
++ GET https://localhost:7037/Usuario/{{id}}
+```javascript
+pm.test("Retorno OK Consultar Usuario por ID", function() {
+    pm.response.to.be.ok;
+    pm.response.to.json;
+    pm.response.to.be.withBody;
+});
+
+var result = pm.response.json();
+
+pm.test("Checar Id Usuario", function() {
+    pm.expect(result.id).not.undefined;
+    pm.expect(result.id).not.null;
+    pm.expect(result.id).to.eql(parseInt(pm.collectionVariables.get("id")));
+});
+
+pm.test("Checar E-mail", function() {
+    pm.expect(result.email).to.eql(pm.collectionVariables.get("email"));
+});
+
+pm.test("Checar Nome", function() {
+    pm.expect(result.name).to.eql(pm.collectionVariables.get("name"));
+});
+
+pm.test("Checar Role", function() {
+    pm.expect(result.role).not.undefined;
+    pm.expect(result.role).not.null;
+    pm.expect(result.role).to.to.eql(pm.collectionVariables.get("role"));
+});
+```
++ GET https://localhost:7037/Noticia/{{id}}
+```javascript
+pm.test("Retorno OK Consultar Noticia por ID", function() {
+    pm.response.to.be.ok;
+    pm.response.to.json;
+    pm.response.to.be.withBody;
+});
+
+var result = pm.response.json();
+
+pm.test("Checar Id Noticia", function() {
+    pm.expect(result.id).not.undefined;
+    pm.expect(result.id).not.null;
+    pm.expect(result.id).to.eql(parseInt(pm.collectionVariables.get("id")));
+});
+
+pm.test("Checar Titulo", function() {
+    pm.expect(result.titulo).to.eql(pm.collectionVariables.get("titulo"));
+});
+
+pm.test("Checar Descricao", function() {
+    pm.expect(result.descricao).to.eql(pm.collectionVariables.get("descricao"));
+});
+
+pm.test("Checar Conteudo", function() {
+    pm.expect(result.conteudo).to.eql(pm.collectionVariables.get("conteudo"));
+});
+
+pm.test("Checar Autor", function() {
+    pm.expect(result.autor).not.null;
+});
+
+pm.test("Checar Data Publicacao", function() {
+    pm.expect(result.dataPublicacao).not.undefined;
+    pm.expect(result.dataPublicacao).not.null;
+});
+```
++ PUT https://localhost:7037/Usuario/{{id}}
+```javascript
+pm.test("Retorno OK Atualizar Usuario", function() {
+    pm.response.to.have.status(204);
+    pm.response.to.be.success;
+});
+```
++ PUT https://localhost:7037/Noticia/{{id}}
+```javascript
+pm.test("Retorno OK Atualizar Noticia", function() {
+    pm.response.to.be.ok;
+    pm.response.to.json;
+    pm.response.to.be.withBody;
+});
+
+var result = pm.response.json();
+
+pm.test("Checar Id Noticia", function() {
+    pm.expect(result.id).not.undefined;
+    pm.expect(result.id).not.null;
+    pm.expect(result.id).to.eql(parseInt(pm.collectionVariables.get("id")));
+});
+```
++ DELETE https://localhost:7037/Usuario/{{id}}
+```javascript
+pm.test("Retorno OK Deletar Usuario", function() {
+    pm.response.to.have.status(204);
+    pm.response.to.be.success;
+});
+```
++ DELETE https://localhost:7037/Noticia/{{id}}
+```javascript
+pm.test("Retorno OK Deletar Noticia", function() {
+    pm.response.to.have.status(204);
+    pm.response.to.be.success;
+});
+```
