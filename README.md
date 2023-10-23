@@ -139,3 +139,8 @@ _uof.Setup(repo => repo.UsuarioRepository.AutenticaUser(It.IsAny<string>(), It.I
 Testar a integração entre as Unidades.
 ### Descrição.
 Para o teste de integração foi utilizado o Postman e também o Newman, com o Postman é possível gerar coleções com as Requests necessárias, e também pre-request scripts para utilizar o input de dados de maneira randomica, junto aos tests feitos em JavaScript para validar o retorno de cada requisição. O Newman facilita no momento de rodar várias requests ao mesmo tempo e também na geração de relatórios para visualizar os resultados.
+#
+### Diretório para as Coleções do Postman
++ NoticiarioAPI.Tests/PostmanCollections
+### Diretório para os Relatórios Gerados pelo Newman
+[Relatorio Noticias Test](NoticiarioAPI.Tests/PostmanCollections/newman/NoticiarioAPI - Noticias Test Collection-2023-10-13-16-56-55-163-0.html)
