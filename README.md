@@ -1,4 +1,4 @@
-# Projeto NoticiarioAPI com Testes Unitários e de Integração + App Insights
+# Projeto NoticiarioAPI com Testes Unitários e de Integração
 #
 ## Descrição
 Nesta API é possível efetuar um CRUD tanto para Usuários quanto para as Noticias, e foram adicionados testes para validar estes cenários.
